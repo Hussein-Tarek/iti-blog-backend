@@ -18,10 +18,6 @@ const userSchema = new Schema(
       type: String,
       select: false,
     },
-    post: {
-      type: Schema.Types.ObjectId,
-      ref: "Post",
-    },
     photo: {
       type: Array,
       default: null,
@@ -36,4 +32,9 @@ const userSchema = new Schema(
     toObject: { virtual: true },
   }
 );
+userSchema.virtual('post', {
+  ref: 'Post',
+  foreignField: 'user',
+  localField: '_id'
+});
 module.exports = userSchema;
