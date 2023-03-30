@@ -18,6 +18,10 @@ const userSchema = new Schema(
       type: String,
       select: false,
     },
+    post: {
+      type: Schema.Types.ObjectId,
+      ref: "Post",
+    },
     photo: {
       type: Array,
       default: null,
