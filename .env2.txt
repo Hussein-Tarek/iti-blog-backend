@@ -1,0 +1,12 @@
+#token for auth
+JWT_SECRET=hussein
+
+#dtatbase
+DATABASE=mongodb+srv://Hussein:hussein@cluster0.wqfsqel.mongodb.net/react-blog?retryWrites=true&w=majority
+
+#cloudinary
+CLOUD_NAME=dngopa997
+API_KEY=711583644553159
+API_SECRET=ZXa5fOXBHnf530sSv77bp6sJZmk
+
+IMGBB_KEY=c509c90a48572916c9c53b0396c12c0f
