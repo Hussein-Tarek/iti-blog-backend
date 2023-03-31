@@ -19,8 +19,8 @@ const postSchema = new Schema(
   },
   { timestamps: true },
   {
-    toJSON: { virtual: true },
-    toObject: { virtual: true },
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true },
   }
 );
 module.exports = postSchema;
