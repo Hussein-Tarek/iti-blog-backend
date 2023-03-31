@@ -5,7 +5,13 @@ const { hashPassword, signUserToken } = require("./auth");
 exports.signUp = async (req, res, next) => {
   try {
     const { username, email, password } = req.body;
+    console.log("photo", req.file.photo)
 
+    if (req.file?.photo) {
+      console.log("photo", req.file.photo)
+
+      user.photo = await uploadCloudBB(req.file.photo);
+    }
     // check if user exist
     const checkedUser = await userModel.findOne({ email });
     if (checkedUser) {

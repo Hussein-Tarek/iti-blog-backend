@@ -26,15 +26,24 @@ const userSchema = new Schema(
     bio: String,
   },
   { timestamps: true },
+)
+// {
+//   toJSON: { virtuals: true }
+//   toObject: { virtuals: true }
+// }
+// userSchema.virtual('posts', {
+//   ref: 'Post',
+//   foreignField: 'user',
+//   localField: '_id'
+// });
 
-  {
-    toJSON: { virtual: true },
-    toObject: { virtual: true },
-  }
-);
-userSchema.virtual('post', {
+userSchema.virtual('posts', {
   ref: 'Post',
-  foreignField: 'user',
-  localField: '_id'
-});
+  localField: '_id',
+  foreignField: 'user'
+})
+
+userSchema.set('toObject', { virtuals: true });
+userSchema.set('toJSON', { virtuals: true });
+
 module.exports = userSchema;
