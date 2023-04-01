@@ -15,8 +15,8 @@ exports.uploadCloudBB = async (file) => {
           console.log(err);
         }
       });
-      // return { url: result.url, public_id: result.id };
-      return result.url;
+      return { url: result.url, public_id: result.id };
+      // return result.url;
     }
   } catch (err) {
     console.log(err);
