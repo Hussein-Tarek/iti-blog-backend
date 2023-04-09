@@ -18,6 +18,8 @@ const userSchema = new Schema(
       type: String,
       select: false,
     },
+    // photo: Array,
+
     photo: {
       type: Array,
       default: null,
