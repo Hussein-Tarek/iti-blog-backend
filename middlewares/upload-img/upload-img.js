@@ -28,20 +28,27 @@ exports.resizePostImage = async (req, res, next) => {
 };
 
 exports.resizeUserImage = async (req, res, next) => {
-  if (req.files?.photo) {
-    req.files.photo = await Promise.all(
-      req.files.photo.map((item) => this.sharpHandler(item.buffer, req.userID))
-    );
-  }
-  if (req.files?.cover_photo) {
-    req.files.cover_photo = await Promise.all(
-      req.files.cover_photo?.map((item) =>
-        this.sharpHandler(item.buffer, req.userID)
-      )
-    );
-  }
+
+  if (req.file)
+    req.file.photo = await this.sharpHandler(req.file.buffer, req.userID);
 
   next();
+
+  // if (req.files?.photo) {
+  //   req.files.photo = await Promise.all(
+  //     req.files.photo.map((item) => this.sharpHandler(item.buffer, req.userID))
+  //   );
+  // }
+
+  // if (req.files?.cover_photo) {
+  //   req.files.cover_photo = await Promise.all(
+  //     req.files.cover_photo?.map((item) =>
+  //       this.sharpHandler(item.buffer, req.userID)
+  //     )
+  //   );
+  // }
+
+  // next();
 };
 
 const upload = multer({ storage: multerStorage, fileFilter });

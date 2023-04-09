@@ -20,7 +20,7 @@ const postRouter = require("./routers/post/post.router");
 dotenv.config();
 
 // variables
-const port = 3005;
+const port = 3000;
 const app = express();
 
 //middleware
